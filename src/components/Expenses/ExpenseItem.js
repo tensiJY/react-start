@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
@@ -28,11 +28,14 @@ function ExpenseItem(props) {
         setTitle('updated');
     };
 
+    /*
     const countUp = () => {
         setTitle(`updated... `);
     };
 
+
     setTimeout(countUp, 10000);
+    */
 
     return (
         <Card className="expense-item">

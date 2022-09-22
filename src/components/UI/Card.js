@@ -1,4 +1,4 @@
-import './Card.css';
+import '../UI/Card.css';
 
 function Card(props) {
     const className = `card ${props.className}`;

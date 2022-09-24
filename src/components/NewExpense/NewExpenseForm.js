@@ -47,6 +47,8 @@ const NewExpenseForm = (props) => {
             });
             return obj;
         });
+        // 상위 컴퍼넌트로 전달
+        props.onSaveExpenseData(formData);
     };
 
     //console.log(inputs);

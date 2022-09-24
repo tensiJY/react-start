@@ -23,10 +23,10 @@ function ExpenseItem(props) {
     */
     const [title, setTitle] = useState(props.title);
 
-    const clickHandler = (e) => {
-        e.preventDefault();
-        setTitle('updated');
-    };
+    // const clickHandler = (e) => {
+    //     e.preventDefault();
+    //     setTitle('updated');
+    // };
 
     /*
     const countUp = () => {
@@ -44,7 +44,7 @@ function ExpenseItem(props) {
                 <h2>{title}</h2>
             </div>
             <div className="expense-item__price">${props.amount}</div>
-            <button onClick={clickHandler}>click</button>
+            {/* <button onClick={clickHandler}>click</button> */}
         </Card>
     );
 }

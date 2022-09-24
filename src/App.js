@@ -1,5 +1,7 @@
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import { useEffect, useState } from 'react';
+import ExpensesFilter from './components/Expenses/ExpensesFilter';
 
 const expenses = [
     {
@@ -29,10 +31,33 @@ const expenses = [
 ];
 
 const App = () => {
+    const [expense, setExpense] = useState(expenses);
+
+    // const [filter, setFilter] = useState(false);
+    // const [filterExpense, setFilterExpense] = useState([]);
+
+    const addExpenseHandler = (expenseData) => {
+        console.log(expenseData);
+        setExpense((prev) => [...prev, expenseData]);
+    };
+
+    // const filterExpenseHandler = (data) => {
+    //     console.log(`filterExpenseHandler : ${data}`);
+    //     setFilter(() => (data === '0' ? false : true));
+    //     setFilterExpense(() => {
+    //         return data === '0'
+    //             ? []
+    //             : expense.filter(
+    //                   (item) => item.date.getFullYear().toString() === data
+    //               );
+    //     });
+    // };
+
     return (
         <div>
-            <NewExpense />
-            <Expenses item={expenses} />
+            <NewExpense onAddExpense={addExpenseHandler} />
+
+            <Expenses item={expense} />
         </div>
     );
 };

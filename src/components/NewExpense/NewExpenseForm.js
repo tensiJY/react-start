@@ -12,7 +12,6 @@ const NewExpenseForm = (props) => {
 
     const onChange = (e) => {
         const { name, value } = e.target;
-        //console.log(`name : ${name} , value:${value}`);
 
         //  이전 상태에 의존할 수 도있음
         /*
@@ -33,65 +32,68 @@ const NewExpenseForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        //console.log(inputs);
+        console.log('submit ....');
         const formData = {
             ...inputs,
             date: new Date(inputs.date),
         };
 
-        setInputs((prev) => {
-            const keys = Object.keys(prev);
-            let obj = {};
-            keys.forEach((item) => {
-                obj[item] = '';
-            });
-            return obj;
-        });
+        // setInputs((prev) => {
+        //     const keys = Object.keys(prev);
+        //     let obj = {};
+        //     keys.forEach((item) => {
+        //         obj[item] = '';
+        //     });
+        //     return obj;
+        // });
         // 상위 컴퍼넌트로 전달
         props.onSaveExpenseData(formData);
     };
 
-    //console.log(inputs);
-
     return (
-        <form onSubmit={submitHandler}>
-            <div className="new-expense__controls">
-                <div className="new-expense__control">
-                    <label>Title</label>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={onChange}
-                        name="title"
-                    />
+        <>
+            <form onSubmit={submitHandler}>
+                <div className="new-expense__controls">
+                    <div className="new-expense__control">
+                        <label>Title</label>
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={onChange}
+                            name="title"
+                        />
+                    </div>
+                    <div className="new-expense__control">
+                        <label>Amount</label>
+                        <input
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            value={amount}
+                            onChange={onChange}
+                            name="amount"
+                        />
+                    </div>
+                    <div className="new-expense__control">
+                        <label>Date</label>
+                        <input
+                            type="date"
+                            min="2019-01-01"
+                            max="2022-12-31"
+                            value={date}
+                            onChange={onChange}
+                            name="date"
+                        />
+                    </div>
                 </div>
-                <div className="new-expense__control">
-                    <label>Amount</label>
-                    <input
-                        type="number"
-                        min="0.01"
-                        step="0.01"
-                        value={amount}
-                        onChange={onChange}
-                        name="amount"
-                    />
+                <div className="expense__actions">
+                    <button type="button" onClick={props.onStopEditingHandler}>
+                        Cancel
+                    </button>
+                    <button type="submit">Add Expense</button>
                 </div>
-                <div className="new-expense__control">
-                    <label>Date</label>
-                    <input
-                        type="date"
-                        min="2019-01-01"
-                        max="2022-12-31"
-                        value={date}
-                        onChange={onChange}
-                        name="date"
-                    />
-                </div>
-            </div>
-            <div className="expense__actions">
-                <button type="submit">Add Expense</button>
-            </div>
-        </form>
+            </form>
+        </>
     );
 };
 

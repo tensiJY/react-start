@@ -1,7 +1,7 @@
-import Expenses from './components/Expenses/Expenses.js_bak';
+import Expenses from './components/Expenses/Expenses.js';
 import NewExpense from './components/NewExpense/NewExpense';
-import { useEffect, useState } from 'react';
-import ExpensesFilter from './components/Expenses/ExpensesFilter';
+import { useState } from 'react';
+//import ExpensesFilter from './components/Expenses/ExpensesFilter';
 
 const expenses = [
     {

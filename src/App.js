@@ -1,4 +1,4 @@
-import Expenses from './components/Expenses/Expenses';
+import Expenses from './components/Expenses/Expenses.js_bak';
 import NewExpense from './components/NewExpense/NewExpense';
 import { useEffect, useState } from 'react';
 import ExpensesFilter from './components/Expenses/ExpensesFilter';

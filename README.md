@@ -21,3 +21,17 @@ https://github.com/tensiJY/react-start/tree/01-user
 ```
 https://github.com/tensiJY/react-start/tree/01-project-user
 ```
+
+# 01-react-frag
+### 유데미 섹션 9 - 프래그먼트 작업, portals, refs
+- 학습
+```
+https://github.com/tensiJY/react-start/tree/01-react-frag
+```
+
+# 10-effect
+### 유데미 섹션 10 고급 : 리듀서를 사용하여 부작용 처리 & 컨텍스트 Api 사용하기, effect
+- 학습 : effect
+```
+https://github.com/tensiJY/react-start/tree/10-effect
+```

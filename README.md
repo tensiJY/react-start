@@ -35,3 +35,8 @@ https://github.com/tensiJY/react-start/tree/01-react-frag
 ```
 https://github.com/tensiJY/react-start/tree/10-effect
 ```
+
+- 학습 : reducer
+```
+https://github.com/tensiJY/react-start/tree/10-usereducer
+```

@@ -1,3 +1,10 @@
+# 유데미 강의 명 
+## React 완벽 가이드 with Redux, next.js, TypeScript
+## 깃 주소
+```
+https://github.com/academind/react-complete-guide-code
+```
+
 # 01-start-test : 컴포넌트
 ### 유데미 섹션 3~7
 - useState 를 활용한 상태관리
@@ -39,4 +46,9 @@ https://github.com/tensiJY/react-start/tree/10-effect
 - 학습 : reducer
 ```
 https://github.com/tensiJY/react-start/tree/10-usereducer
+```
+
+- 학습 : context-api
+```
+https://github.com/tensiJY/react-start/tree/10-context-api
 ```

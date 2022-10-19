@@ -1,13 +1,14 @@
 import React from 'react';
 import classes from './Header.module.css';
 import mealsImage from '../../assets/meals.jpg';
+import HeaderCartButton from './HeaderCartButton';
 
 const Header = (props) => {
     return (
         <>
             <header className={classes.header}>
                 <h1>ReactMeals</h1>
-                <button>Cart</button>
+                <HeaderCartButton />
             </header>
             {/* -가 있으므로 . 점표기법으로 쓸수 없다 */}
             <div className={classes['main-image']}>

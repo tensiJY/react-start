@@ -8,7 +8,7 @@ const Header = (props) => {
         <>
             <header className={classes.header}>
                 <h1>ReactMeals</h1>
-                <HeaderCartButton />
+                <HeaderCartButton onClick={props.onShowCart} />
             </header>
             {/* -가 있으므로 . 점표기법으로 쓸수 없다 */}
             <div className={classes['main-image']}>

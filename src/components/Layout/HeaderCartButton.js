@@ -12,11 +12,12 @@ const HeaderCartButton = (props) => {
     //      리듀스에서 첫 번째 인자인 함수는
     //          1번째 인자 : 초기값
     //          2번째 인자 : 배열의 아이템 (반복문의 값)
-    const numberOfCartItems = cartCtx.items.reduce((carNumber, item) => {
-        return carNumber + item.amount;
+    const numberOfCartItems = cartCtx.items.reduce((cartNumber, item) => {
+        console.log(item.amount);
+        return cartNumber + Number(item.amount);
     }, 0);
 
-    console.log(numberOfCartItems);
+    //console.log(numberOfCartItems);
 
     return (
         <button className={classes.button} onClick={props.onClick}>

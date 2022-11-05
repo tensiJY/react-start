@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Cart.module.css';
 import Modal from '../UI/Modal';
-
-const DUMMY = [
-    { id: 'c1', name: 'Sushi', amount: 2, price: 12.0 },
-    { id: 'c2', name: 'Kimchi', amount: 2, price: 24.0 },
-];
+import CartContext from '../../store/cart-context';
+import CartItem from './CartItem';
 
 const Cart = (props) => {
+    const cartCtx = useContext(CartContext);
+
+    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+
+    const hasItems = cartCtx.items.length > 0 ? true : false;
+
+    const cartItemRemoveHandler = (id) => {
+        cartCtx.removeItem(id);
+    };
+    const cartItemAddHandler = (item) => {
+        cartCtx.addItem(item);
+    };
+
+    //  bind는 함수를 사전에 구성한다
+    //  기본적으로 인수를 미리 구성할 수 있다 > 함수가 실행 될 때 받을 인수
     const cartItem = (
         <ul className={classes['cart-items']}>
-            {DUMMY.map((item) => {
-                return <li key={item.id}>{item.name}</li>;
+            {cartCtx.items.map((item, idx) => {
+                return (
+                    <CartItem
+                        key={item.id}
+                        name={item.name}
+                        price={item.price}
+                        amount={item.amount}
+                        onRemove={cartItemRemoveHandler.bind(null, item.id)}
+                        onAdd={cartItemAddHandler.bind(null, item)}
+                    />
+                );
             })}
         </ul>
     );
@@ -21,7 +42,7 @@ const Cart = (props) => {
             {cartItem}
             <div className={classes.total}>
                 <span>Total Amount</span>
-                <span>35.62</span>
+                <span>{totalAmount}</span>
             </div>
             <div className={classes.actions}>
                 <button
@@ -30,7 +51,7 @@ const Cart = (props) => {
                 >
                     Close
                 </button>
-                <button className={classes.button}>Order</button>
+                {hasItems && <button className={classes.button}>Order</button>}
             </div>
         </Modal>
     );

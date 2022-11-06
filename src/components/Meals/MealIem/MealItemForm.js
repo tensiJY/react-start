@@ -7,7 +7,7 @@ const MealItemForm = (props) => {
     const amountInputRef = useRef();
 
     const [amountIsValid, setAmountIsValid] = useState(true);
-
+    console.log(`amountIsValid : ${amountIsValid}`);
     const submitHandler = (event) => {
         event.preventDefault();
         //console.log(amountInputRef.current);
@@ -25,8 +25,10 @@ const MealItemForm = (props) => {
             });
             return;
         }
-        //console.log(`amountIsValid : ${amountIsValid}`);
         props.onAddToCart(enteredAmountNumber);
+        setAmountIsValid((prev) => {
+            return true;
+        });
     };
     return (
         <form className={classes.form} onSubmit={submitHandler}>

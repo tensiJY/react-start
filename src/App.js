@@ -8,14 +8,14 @@ function App() {
     const [cartIsShown, setCartIsShown] = useState(false);
 
     const showCartHandler = (e) => {
-        console.log(e);
+        //console.log(e);
         setCartIsShown((prev) => {
             return true;
         });
     };
 
     const hideCartHandler = (e) => {
-        console.log(e);
+        //console.log(e);
         setCartIsShown((prev) => false);
     };
 

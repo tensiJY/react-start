@@ -52,3 +52,10 @@ https://github.com/tensiJY/react-start/tree/10-usereducer
 ```
 https://github.com/tensiJY/react-start/tree/10-context-api
 ```
+
+# 11-food-order-app
+### 유데미 섹션 11 : Practice Project : building a Food Order app
+```
+https://github.com/tensiJY/react-start/tree/11-food-order-app
+```
+- context + reducer 

@@ -15,7 +15,7 @@ const Cart = (props) => {
         cartCtx.removeItem(id);
     };
     const cartItemAddHandler = (item) => {
-        cartCtx.addItem(item);
+        cartCtx.addItem({ ...item, amount: 1 });
     };
 
     //  bind는 함수를 사전에 구성한다

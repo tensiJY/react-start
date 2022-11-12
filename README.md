@@ -59,3 +59,9 @@ https://github.com/tensiJY/react-start/tree/10-context-api
 https://github.com/tensiJY/react-start/tree/11-food-order-app
 ```
 - context + reducer 
+
+# 12-scenes
+### 유데미 섹션 12 : React.memo, useCallback, useMemo
+```
+https://github.com/tensiJY/react-start/tree/12-scenes
+```

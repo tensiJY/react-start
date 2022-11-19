@@ -15,7 +15,7 @@ function App() {
         try {
             //const response = await fetch('https://swapi.dev/api/films/');
             const response = await fetch(
-                'https://react-http-622ef-default-rtdb.firebaseio.com/movies.json'
+                'https://swapi.dev/api/films/'
             );
             if (!response.ok) {
                 throw new Error('Something went wrong!');

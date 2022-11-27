@@ -1,38 +1,41 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 const SimpleInput = (props) => {
     const [nameInput, setNameInput] = useState('');
 
-    const [nameInputValid, setNameInputValid] = useState(true);
-
     const [isTouched, setIsTouched] = useState(false);
 
-    const nameInputRef = useRef();
+    const nameInputValid = nameInput.trim() !== '';
+    const nameInputIsInvalid = isTouched && !nameInputValid;
+
+    let formIsValid = false;
+
+    if (nameInputValid) {
+        formIsValid = true;
+    }
 
     const nameInputChangeHandler = (event) => {
         setNameInput(event.target.value);
     };
 
-    const formSubmitHandler = (event) => {
+    const nameInputBlurHandler = (event) => {
         setIsTouched(true);
+    };
+
+    const formSubmitHandler = (event) => {
         //  http 전송을 막기 위함 -> http 전송이 되면 페이지가 새로 고침이 된다
         event.preventDefault();
         console.log(`useState : ${nameInput}`);
-        if (nameInput.trim() === '') {
-            setNameInputValid(false);
+        setIsTouched(true);
+        if (!nameInputValid) {
             return;
         }
-        setNameInputValid(true);
-        //  ref는 항상 current 프로퍼티를 갖게 된다
-        const nameInputRefValue = nameInputRef.current.value;
-        console.log(`useRef : ${nameInputRefValue}`);
 
         setNameInput('');
+        setIsTouched(false);
         //  아래와 같이 사용하지 않는다 => dom 객체를 직접 접근하여 제어하기 때문이다
         //  NOT IDEAL, DON'T MANIPULATE THE DOM
         //  nameInputRefValue.current.value = '';
     };
-
-    const nameInputIsInvalid = isTouched && !nameInputValid;
 
     const nameInputClasses = nameInputIsInvalid
         ? 'form-control invalid'
@@ -46,13 +49,13 @@ const SimpleInput = (props) => {
                     type="text"
                     id="name"
                     onChange={nameInputChangeHandler}
-                    ref={nameInputRef}
+                    onBlur={nameInputBlurHandler}
                     value={nameInput}
                 />
             </div>
             {nameInputIsInvalid && <p>name is null</p>}
             <div className="form-actions">
-                <button>Submit</button>
+                <button disabled={!formIsValid}>Submit</button>
             </div>
         </form>
     );
